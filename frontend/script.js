@@ -9,11 +9,11 @@ document.getElementById("send-btn").addEventListener("click", sendMessage);
 function sendMessage() {
   const userInput = document.getElementById("user-input").value;
   if (userInput.trim() !== "") {
-    displayMessage("HODLER", userInput);
+    displayMessage("Stepbro", userInput);
     document.getElementById("user-input").value = "";
 
     fetchChatGPTResponse(userInput).then((response) => {
-      displayMessage("THE STRATEGIST", response);
+      displayMessage("Stepsis", response);
     });
   }
 }

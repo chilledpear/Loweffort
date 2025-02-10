@@ -13,12 +13,11 @@
 <body class="light-mode">
   <!-- TOP MENU: Slim bar with social links -->
 
-
   <div class="container">
     <div class="title-container">
       <div class="image-text">STEPSISAI</div>
       <div class="image-text2">
-        Heyy StewpBwroo, How you doingg??
+        Heyy Stepbro, How you doing??
       </div>
       <div class="contract-text">
         Contract Address: 
@@ -27,7 +26,7 @@
 
     <!-- CENTER VIDEO: Uses stepsis.mp4 -->
     <div class="image-box">
-      <video id="center-video" controls class="center-image">
+      <video id="center-video" controls autoplay muted playsinline class="center-image">
         <source src="stepsis.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -42,6 +41,16 @@
       </div>
     </div>
   </div>
+
+  <!-- Force mute using JavaScript -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('center-video');
+      if (video) {
+        video.muted = true;
+      }
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
