@@ -42,7 +42,18 @@
     </div>
   </div>
 
+  <!-- Force mute using JavaScript -->
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var video = document.getElementById('center-video');
+      if (video) {
+        video.muted = true;
+      }
+    });
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
+
 
