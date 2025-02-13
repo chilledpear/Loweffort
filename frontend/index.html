@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StepsisAI</title>
+  <title>BLM</title>
   
   <!-- Favicon updated for The Strategist -->
   <link id="favicon" rel="icon" type="image/jpeg" href="strategist-favicon.jpg" />
@@ -15,21 +15,18 @@
 
   <div class="container">
     <div class="title-container">
-      <div class="image-text">STEPSISAI</div>
+      <div class="image-text">BLM</div>
       <div class="image-text2">
-        Heyy Stepbro, How you doing??
+        Broccoli Language Model
       </div>
       <div class="contract-text">
-        Contract Address: G1SpkUJ99WfxVpVuGaUgX7Vf8pwnHDmVNHK8hgarpump
+        Contract Address: Coming soon
       </div>
     </div>
 
-    <!-- CENTER VIDEO: Uses stepsis.mp4 -->
+    <!-- CENTER IMAGE: Replacing video with an image -->
     <div class="image-box">
-      <video id="center-video" controls autoplay muted playsinline class="center-image">
-        <source src="stepsis.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <img id="center-image" src="stepsis.jpg" alt="Stepsis AI" class="center-image">
     </div>
 
     <!-- CHAT BOX SECTION -->
@@ -42,16 +39,17 @@
     </div>
   </div>
 
-  <!-- Force mute using JavaScript -->
+  <!-- Play dog barking sound on page load -->
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      var video = document.getElementById('center-video');
-      if (video) {
-        video.muted = true;
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+      var barkSound = new Audio('bark.mp3');
+      barkSound.play().catch(function(error) {
+        console.error('Audio playback failed:', error);
+      });
     });
   </script>
 
   <script src="script.js"></script>
 </body>
 </html>
+
