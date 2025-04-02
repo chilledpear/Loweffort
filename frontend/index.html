@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLM</title>
+  <title>TLM</title>
   
   <!-- Favicon updated for The Strategist -->
   <link id="favicon" rel="icon" type="image/jpeg" href="strategist-favicon.jpg" />
@@ -11,16 +11,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="light-mode">
-  <!-- TOP MENU: Slim bar with social links -->
+  <!-- Added ASCII art overlay div that will be populated by JS -->
+  <div class="ascii-overlay" id="asciiOverlay"></div>
 
   <div class="container">
     <div class="title-container">
-      <div class="image-text">Al16z</div>
+      <div class="image-text">TLM</div>
       <div class="image-text2">
-        Allegedly it's 6 Million Jews
+        Titty Language Model  ( ͜.人 ͜.）
       </div>
       <div class="contract-text">
         Contract Address: Soon
+         
+
       </div>
     </div>
 
@@ -49,7 +52,101 @@
     });
   </script>
 
+  <!-- ASCII art background script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create ASCII art overlay
+      const overlay = document.getElementById('asciiOverlay');
+      
+      // ASCII art pattern (the one provided by the user)
+      const asciiPattern = [
+        "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⢛⡛⠿⠛⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⣿⣿⡿⠟⡉⣡⡖⠘⢗⣀⣀⡀⢢⣐⣤⣉⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣿⡿⠉⣠⣲⣾⡭⣀⢟⣩⣶⣶⡦⠈⣿⣿⣿⣷⣖⠍⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⡛⢀⠚⢩⠍⠀⠀⠡⠾⠿⣋⡥⠀⣤⠈⢷⠹⣿⣎⢳⣶⡘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⡏⢁⡤⠉⠀⠀⠀⣴⠆⠠⠾⠋⠁⣼⡿⢰⣸⣇⢿⣿⡎⣿⡷⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⠀⢸⢧⠁⠀⠀⢸⠇⢐⣂⣠⡴⠶⣮⢡⣿⢃⡟⡘⣿⣿⢸⣷⡀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣯⢀⡏⡾⢠⣿⣶⠏⣦⢀⠈⠉⡙⢻⡏⣾⡏⣼⠇⢳⣿⡇⣼⡿⡁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⠈⡇⡇⡘⢏⡃⠀⢿⣶⣾⣷⣿⣿⣿⡘⡸⠇⠌⣾⢏⡼⣿⠇⠀⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⡀⠀⢇⠃⢢⡙⣜⣾⣿⣿⣿⣿⣿⣿⣧⣦⣄⡚⣡⡾⣣⠏⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣷⡀⡀⠃⠸⣧⠘⢿⣿⣿⣿⣿⣿⣻⣿⣿⣿⣿⠃⠘⠁⢈⣤⡀⣬⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⣿⣇⣅⠀⠀⠸⠀⣦⡙⢿⣿⣿⣿⣿⣿⣿⡿⠃⢀⣴⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⡿⢛⣉⣉⣂⡀⠀⢸⣿⣿⣷⣬⣛⠛⢛⣩⣵⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⢋⣴⣿⣿⣿⣿⣿⣶⣬⣛⣻⠿⢿⣿⡇⠈⠙⢛⣛⣩⣭⣭⣝⡛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⡇⣼⣿⣿⣿⣿⣿⡿⡹⢿⣿⣽⣭⣭⣭⣄⣙⠻⢿⣿⡿⣝⣛⣛⡻⢆⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⢥⣿⣿⣿⣿⣿⣿⢇⣴⣿⣿⣿⣿⣿⡿⣿⣿⣿⣷⣌⢻⣿⣿⣿⣿⣿⣷⣶⣌⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⡆⣿⣿⣿⣿⣿⡟⣸⣿⣿⣿⣿⣿⣿⣄⣸⣿⣿⣿⣿⣦⢻⣿⣿⣿⣿⣿⣿⣿⠁⠊⠻⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⠸⣿⣿⣿⣿⡇⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⣷⣿⠌⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣄⢻⣿⣿⣿⣿⡸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⠈⣿⣿⣿⣿⣷⢙⠿⣿⣿⣿⣿⣿⣿⣿⠿⣟⣩⣴⣷⣌⠻⣿⣿⣿⣿⣿⣿⡟⢠⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣆⢻⣿⣿⣿⣿⡇⣷⣶⣭⣭⣭⣵⣶⣾⣿⣿⣿⣿⣿⣿⣷⣌⠿⣿⣿⡿⢋⣠⣿⣿⣿⣿⣿⣿⣿⣿",
+        "⣿⣿⣿⡚⣿⣿⣿⣿⡇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⢀⣤⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
+      ];
+      
+      // Calculate how many rows and repeats needed to fill the screen
+      const calculateDimensions = () => {
+        const screenHeight = window.innerHeight;
+        const screenWidth = window.innerWidth;
+        
+        // Assuming each line is about 8px tall
+        const lineHeight = 10;
+        
+        // Assuming each character is about 8px wide (monospace)
+        const charWidth = 10;
+        
+        // Calculate rows needed (add extra to account for animation movement)
+        const rowsNeeded = Math.ceil(screenHeight / lineHeight) + 10;
+        
+        // Calculate how many times we need to repeat pattern horizontally (add extra for animation)
+        const patternWidth = asciiPattern[0].length * charWidth;
+        const repeatsNeeded = Math.ceil(screenWidth / patternWidth) + 2;
+        
+        return { rowsNeeded, repeatsNeeded };
+      };
+      
+      // Create rows to fill the screen
+      const fillOverlay = () => {
+        // Clear existing content
+        overlay.innerHTML = '';
+        
+        const { rowsNeeded, repeatsNeeded } = calculateDimensions();
+        
+        for (let i = 0; i < rowsNeeded; i++) {
+          const row = document.createElement('div');
+          row.className = 'ascii-row';
+          
+          // Set custom property for staggered animation
+          row.style.setProperty('--row-index', i % asciiPattern.length);
+          
+          // Alternate row movement direction based on index
+          if (i % 2 === 0) {
+            row.style.animationDirection = 'alternate';
+          } else {
+            row.style.animationDirection = 'alternate-reverse';
+          }
+          
+          // Get the pattern for this row using modulo
+          const pattern = asciiPattern[i % asciiPattern.length];
+          
+          // Repeat the pattern horizontally
+          let repeatedPattern = '';
+          for (let j = 0; j < repeatsNeeded; j++) {
+            repeatedPattern += pattern;
+          }
+          
+          row.textContent = repeatedPattern;
+          overlay.appendChild(row);
+        }
+      };
+      
+      // Initial fill
+      fillOverlay();
+      
+      // Adjust on window resize
+      window.addEventListener('resize', fillOverlay);
+    });
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
-

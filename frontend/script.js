@@ -13,7 +13,7 @@ function sendMessage() {
     document.getElementById("user-input").value = "";
 
     fetchChatGPTResponse(userInput).then((response) => {
-      displayMessage("Al16z", response);
+      displayMessage("TLM", response);
     });
   }
 }
