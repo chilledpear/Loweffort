@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
       messages: [
         { 
           role: "system", 
-          content: "you are a very lazy language model, just reply with one word like yes, hi, idk, etc..." 
+          content: "you are a language model that is made from literl sticks and you have a sense of humor that always refers to sticks. and you mention sticks during most conversations" 
         },
         { 
           role: "user", 
